@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Users List </title>
+        
+         <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+          <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+
+<body>
+<h1 align="center">Users List</h1>
+<table id="t02"  cellpadding="2">
+<tr>
+<th>
+<a  href="/newUser"><h2>Create User</h2></a>
+
+</th>
+
+</tr>
+</table>
+<table >
+
+
+</table>
+   
+<form:form>
+<table id="t01" border="2" width="70%" cellpadding="2">
+<tr><th>Id</th><th>First Name</th><th>Last Name</th>
+<th>Email</th><th>Username</th><th>Edit</th><th>Delete</th></tr>  
+
+   
+    <tr th:each="user : ${list}"> 
+   <td th:text="${user.id}"></td>  
+   <td th:text="${user.firstName}"></td> 
+   <td th:text="${user.lastName}"></td>  
+   <td th:text="${user.email}"></td> 
+   <td th:text="${user.username}"></td>  
+   
+   <td><a th:href="@{'/editUser/' + ${user.id}}">Edit</a></td> 
+   <td><a th:href="@{'/deleteUser/' + ${user.id}}">Delete</a></td> 
+   
+   
+   </tr>  
+  
+   
+   
+   </table>  
+   <br/>
+   
+  
+   </form:form>
+</body>
+</html>
